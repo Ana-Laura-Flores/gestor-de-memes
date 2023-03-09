@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap');
+/* font-family: 'Anton', sans-serif; */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --tipografia__titulos: 'Anton', sans-serif;
+    --tipografia__textos: 'Poppins', sans-serif;
+    --color__oscuro: rgb(44, 44, 44);
+    --texto__oscuro: white;
+    --fondo__claro: #d4d4d4;
+}
+
+body{
+    background-color: var(--color__oscuro);
+    color: var(--texto__oscuro);
+}
+header{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+main{
+    width: 100%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    
+}
+.main__meme{
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    
+}
+.meme__text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.meme__image{
+    width: 500px;
+    border-radius: 20px;
+    height: 300px;
+    background-color: var(--texto__oscuro);
+    align-self: center;
+    margin: 10px 0px;
+}
+
+.meme__button{
+    width: 150px;
+    height: 50px;
+    border-radius: 50px;
+    transition: all 2s;
+    cursor: pointer;
+    align-self: center;
+    margin-bottom: 10px;
+    
+}
+.meme__button:hover{
+    border-radius: 10px;
+    background-color: rgb(193, 225, 253);
+    
+}
+
+h1, h2 {
+    font-family: var(--tipografia__titulos);
+    color: white;
+    letter-spacing: 2px;
+}
+
+.panel__container{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    justify-content: space-around;
+    align-self: flex-end;
+    z-index: 1;
+    top: 0;
+    width: 25%;
+    box-shadow: -8px -1px 24px -10px rgba(255,255,255,0.75);
+-webkit-box-shadow: -8px -1px 24px -10px rgba(255,255,255,0.75);
+-moz-box-shadow: -8px -1px 24px -10px rgba(255,255,255,0.75);
+    
+    
+}
+.panel__image{
+    display: none;
+    width: 100%;
+    height:100vh;
+    background-color: var(--color__oscuro);
+    padding: 15px;
+      
+}
+.panel__text{
+    display: block;
+    width: 100%;
+    height:100vh;
+    background-color: var(--color__oscuro);
+    padding: 20px;
+    
+    
+}
+
+
+.button{
+    font-family: var(--tipografia__textos);
+    font-weight: 500;
+    font-size: 0.9rem;
+    width: 150px;
+    height: 30px;
+    cursor: pointer;
+}
+.botonera{
+    display: flex;
+}
+.button__text{
+    display: flex;
+    font-weight: normal;
+    justify-content: center;
+    align-items: center;
+}
+.button__theme__dark{
+    display: none;
+}
+.panel__control__text{
+  display: flex;
+  flex-direction: column;
+}
+.panel__font{
+  display: flex;
+  flex-direction: column;
+}
+.container__controls_text{
+  display: flex;
+  flex-direction: row;
+}
+textarea{
+  height: 40px;
+  width: 90%;
+}
+.text__size{
+  width: 40px;
+}
+.button__align{
+  width: 20px;
+  height: 20px;
+}
+.icon{
+    font-size: 1rem;
+    margin-right: 5px;
+}
+
+/* input{
+    -webkit-appearance: none;
+    background: lightgray;
+    height: 5px;
+    border-radius: 20px;
+}
+input[type='range']::-webkit-slider-runnable-track, 
+input[type='range']::-webkit-slider-thumb{
+         -webkit-appearance: none;
+         background: #ffffff;
+        cursor: pointer;
+} */
+.panel__control{
+    margin: 8px 0;
+    font-size: 10px;
+}
+input[type=range] {
+    width: 100%;
+    margin: 8.6px 0;
+    background-color: transparent;
+    -webkit-appearance: none;
+  }
+  input[type=range]:focus {
+    outline: none;
+  }
+  input[type=range]::-webkit-slider-runnable-track {
+    background: #a2a2a2;
+    opacity: 60%;
+    border: 0;
+    border-radius: 1.3px;
+    width: 100%;
+    height: 6.8px;
+    cursor: pointer;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    margin-top: -5.6px;
+    width: 16px;
+    height: 18px;
+    background: red;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 5px;
+    cursor: pointer;
+    -webkit-appearance: none;
+  }
+  input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #d5d5d5;
+  }
+  input[type=range]::-moz-range-track {
+    background: #a2a2a2;
+    border: 0;
+    border-radius: 1.3px;
+    width: 100%;
+    height: 6.8px;
+    cursor: pointer;
+  }
+  input[type=range]::-moz-range-thumb {
+    width: 16px;
+    height: 18px;
+    background: #a2a2a2;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  input[type=range]::-ms-track {
+    background: transparent;
+    border-color: transparent;
+    border-width: 6.6px 0;
+    color: transparent;
+    width: 100%;
+    height: 6.8px;
+    cursor: pointer;
+  }
+  input[type=range]::-ms-fill-lower {
+    background: #6f6f6f;
+    border: 0;
+    border-radius: 2.6px;
+  }
+  input[type=range]::-ms-fill-upper {
+    background: #a2a2a2;
+    border: 0;
+    border-radius: 2.6px;
+  }
+  input[type=range]::-ms-thumb {
+    width: 100%;
+    height: 18px;
+    background: #a2a2a2;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 0px;
+    
+  }
+  input[type=range]:focus::-ms-fill-lower {
+    background: #a2a2a2;
+  }
+  input[type=range]:focus::-ms-fill-upper {
+    background: #d5d5d5;
+  }
+  /*TODO: Use one of the selectors from https://stackoverflow.com/a/20541859/7077589 and figure out
+  how to remove the virtical space around the range input in IE*/
+  @supports (-ms-ime-align:auto) {
+    /* Pre-Chromium Edge only styles, selector taken from hhttps://stackoverflow.com/a/32202953/7077589 */
+    input[type=range] {
+      margin: 0;
+      /*Edge starts the margin from the thumb, not the track as other browsers do*/
+    }
+  }
+  label{
+    font-size: 10px;
+    margin: 10px 0;
+  }
+  
+  
+
