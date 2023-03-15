@@ -15,9 +15,34 @@
     --fondo__claro: #d4d4d4;
 }
 
+
+:root{
+  --font__title: 'Anton', sans-serif;
+  --font__text: 'Poppins', sans-serif;
+  --background-primary: #050214; 
+  --background-secondary: #070d27;
+  --font-primary: white;
+  --color-range: #d4d4d4;
+  --color-range-secondary: #a2a2a2;
+  --button-color-primary: #430373;
+  --button-color-hover: #4f038a;
+  --button-default:#393e49;
+  --button-default-hover:4e5565;
+}
+
+.theme__dark{
+--background-primary: #181818;
+  --background-secondary: #192041;
+  --font-color-primary: #e7e7e7;
+  --font-color-secondary: #e7e7e7;
+  --button-color-primary: #430373;
+  --button-color-hover: #4f038a;
+}
+
+
 body{
-    background-color: var(--color__oscuro);
-    color: var(--texto__oscuro);
+    background-color: var(--background-primary);
+    color: var(--font-primary);
 }
 header{
     padding: 20px;
@@ -38,8 +63,13 @@ main{
 .main__meme{
     display: flex;
     flex-direction: column;
-    height: 500px;
-    
+    justify-content: center;
+    align-self: center;
+    width: 500px;
+    height: 400px;
+    background-color: var(--background-secondary);
+    border-radius: 10px;
+      
 }
 .meme__text{
     display: flex;
@@ -48,9 +78,8 @@ main{
 }
 .meme__image{
     width: 500px;
-    border-radius: 20px;
     height: 300px;
-    background-color: var(--texto__oscuro);
+    background-color: var(--font-primary);
     align-self: center;
     margin: 10px 0px;
 }
@@ -62,20 +91,29 @@ main{
     transition: all 2s;
     cursor: pointer;
     align-self: center;
-    margin-bottom: 10px;
+    margin-top: 20px;
+    border: none;
     
 }
 .meme__button:hover{
     border-radius: 10px;
-    background-color: rgb(193, 225, 253);
+    background-color: var(--button-color-hover);
+    color: var(--font-color-primary);
     
 }
 
 h1, h2 {
-    font-family: var(--tipografia__titulos);
+    font-family: var(--font__title);
     color: white;
     letter-spacing: 2px;
+    filter: se;
 }
+h4{
+   margin: 3px 0 0 0;
+  font-size: 14px;
+  font-family: var(--font__text);
+}
+
 
 .panel__container{
     display: flex;
@@ -96,23 +134,22 @@ h1, h2 {
     display: none;
     width: 100%;
     height:100vh;
-    background-color: var(--color__oscuro);
+    background-color: var(--background-secondary);
     padding: 15px;
+    
       
 }
 .panel__text{
-    display: block;
+    display: none;
     width: 100%;
     height:100vh;
-    background-color: var(--color__oscuro);
+    background-color: var(--background-secondary);
     padding: 20px;
-    
-    
+ 
 }
 
-
 .button{
-    font-family: var(--tipografia__textos);
+    font-family: var(--font__text);
     font-weight: 500;
     font-size: 0.9rem;
     width: 150px;
@@ -122,7 +159,8 @@ h1, h2 {
 .botonera{
     display: flex;
 }
-.button__text{
+.button__text
+.button__image{
     display: flex;
     font-weight: normal;
     justify-content: center;
@@ -131,28 +169,144 @@ h1, h2 {
 .button__theme__dark{
     display: none;
 }
-.panel__control__text{
-  display: flex;
+.panel__text{
+  display: none;
   flex-direction: column;
+  align-content: space-between;
 }
 .panel__font{
   display: flex;
   flex-direction: column;
 }
+.panel__control{
+  margin: 8px 0;
+  font-size: 10px;
+}
 .container__controls_text{
   display: flex;
   flex-direction: row;
 }
+
+#url__image{
+  background-color: var(--background-primary);
+  width: 95%;
+  height: 25px;
+  color: var(--font-color-primary);
+  border: none;
+  margin-top: 2px;
+}
+.panel__control__fondo{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2px;
+  font-size: 13px;
+  height: 30px;
+}
+#background__color,
+#text__back,
+#text__color{
+  appearance: none;
+  width: 30%;
+  height: 30px;
+  border: none;
+  margin: 2px 0;
+  
+  
+  background-color: var(--background-primary);
+}
+
+#background__color::-webkit-color-swatch,
+#text__color::-webkit-color-swatch,
+#text__back::-webkit-color-swatch{
+  border-radius: 5px;
+  border: solid 1px var(--color-range);
+}
+#background__color::-moz-color-swatch,
+#text__color::-moz-color-swatch,
+#text__back::-moz-color-swatch{
+  border-radius: 5px;
+  border: solid 1px var(--color-range);
+}
+#panel__control__select{
+  width: 50%;
+  background-color: var(--button-default);
+  color: var(--font-color-primary);
+  border: none;
+  height: 30px;
+}
+
+#text__leading,
+#fonts__select,
+#text__space{
+  background-color: var(--button-default);
+  color: var(--font-color-primary);
+  border: none;
+  width: 95%;
+  height: 30px;
+}
+#fonts__select{
+  width: 95%;
+}
+
+
+.container__controls__align{
+  display: flex;
+  width: 95%;
+}
 textarea{
-  height: 40px;
-  width: 90%;
+  height: 30px;
+  width: 95%;
+  background-color: var(--button-default);
+  color: var(--font-color-primary);
+  border: none;
+  border-radius: 3px;
+  padding: 5px;
+}
+
+.panel__control__text{
+  display: flex;
+  flex-direction: column;
+  
 }
 .text__size{
-  width: 40px;
+  background-color: var(--button-default);
+  width: 50%;
+  height: 30px;
+  border: none;
+  color: var(--font-color-primary);
+  padding: 0 10px 0;
 }
 .button__align{
-  width: 20px;
-  height: 20px;
+  background-color: var(--button-default);
+  margin: 10px 0;
+  width: 15%;
+  height: 30px;
+  font-size: 16px;
+  border: none;
+  color: var(--font-color-primary);
+}
+.stroke__buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 95%;
+}
+.button__stroke{
+  background-color: var(--button-default);
+  border-radius: 3px;
+  font-size: 14px;
+  cursor: pointer;
+  color: var(--font-color-primary);
+  padding: 10px;
+  height: 35px;
+  border: none;
+  transition: 0.2s;
+  width: 30%;
+}
+.button__stroke:hover{
+  background-color: var(--button-default-hover);
+ 
 }
 .icon{
     font-size: 1rem;
@@ -171,10 +325,9 @@ input[type='range']::-webkit-slider-thumb{
          background: #ffffff;
         cursor: pointer;
 } */
-.panel__control{
-    margin: 8px 0;
-    font-size: 10px;
-}
+
+
+/*  styles range */
 input[type=range] {
     width: 100%;
     margin: 8.6px 0;
@@ -185,7 +338,7 @@ input[type=range] {
     outline: none;
   }
   input[type=range]::-webkit-slider-runnable-track {
-    background: #a2a2a2;
+    background: var(--color-range);
     opacity: 60%;
     border: 0;
     border-radius: 1.3px;
@@ -197,17 +350,17 @@ input[type=range] {
     margin-top: -5.6px;
     width: 16px;
     height: 18px;
-    background: red;
+    background: var(--button-color-hover);
     border: 1px solid rgba(0, 0, 0, 0);
     border-radius: 5px;
     cursor: pointer;
     -webkit-appearance: none;
   }
   input[type=range]:focus::-webkit-slider-runnable-track {
-    background: #d5d5d5;
+    background: var(--color-range);
   }
   input[type=range]::-moz-range-track {
-    background: #a2a2a2;
+    background: var(--color-range-secondary);
     border: 0;
     border-radius: 1.3px;
     width: 100%;
@@ -217,7 +370,7 @@ input[type=range] {
   input[type=range]::-moz-range-thumb {
     width: 16px;
     height: 18px;
-    background: #a2a2a2;
+    background: var(--color-range-secondary);
     border: 1px solid rgba(0, 0, 0, 0);
     border-radius: 5px;
     cursor: pointer;
@@ -232,19 +385,19 @@ input[type=range] {
     cursor: pointer;
   }
   input[type=range]::-ms-fill-lower {
-    background: #6f6f6f;
+    background: var(--color-range);
     border: 0;
     border-radius: 2.6px;
   }
   input[type=range]::-ms-fill-upper {
-    background: #a2a2a2;
+    background: var(--color-range);
     border: 0;
     border-radius: 2.6px;
   }
   input[type=range]::-ms-thumb {
     width: 100%;
     height: 18px;
-    background: #a2a2a2;
+    background: var(--color-range);
     border: 1px solid rgba(0, 0, 0, 0);
     border-radius: 5px;
     cursor: pointer;
@@ -252,10 +405,10 @@ input[type=range] {
     
   }
   input[type=range]:focus::-ms-fill-lower {
-    background: #a2a2a2;
+    background: var(--button-color-hover);
   }
   input[type=range]:focus::-ms-fill-upper {
-    background: #d5d5d5;
+    background: var(--color-range);
   }
   /*TODO: Use one of the selectors from https://stackoverflow.com/a/20541859/7077589 and figure out
   how to remove the virtical space around the range input in IE*/
@@ -269,6 +422,10 @@ input[type=range] {
   label{
     font-size: 10px;
     margin: 10px 0;
+  }
+
+  textarea{
+    
   }
   
   
