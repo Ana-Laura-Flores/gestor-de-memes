@@ -16,6 +16,34 @@ $(".button__text").addEventListener("click", ()=>{
     }
 })
 
+// ---------------- BTN CLOSE ----------------------
+$(".btn__close__image").addEventListener("click", ()=>{
+    $(".panel__image").style.display = "none"
+})
+$(".btn__close__text").addEventListener("click", ()=>{
+    $(".panel__text").style.display = "none"
+})
+
+//MODO CLARO ---- MODO OSCURO
+const changeModo = () =>{
+    const changeTheme =$("body").getAttribute("data-theme")
+    if (changeTheme) {        
+        $("#button__theme__dark").style.display = "none"
+        $("#button__theme__light").style.display="block"
+        $("body").removeAttribute("data-theme", "theme__light")
+        
+    }else{
+        $("#button__theme__dark").style.display = "block"
+        $("#button__theme__light").style.display = "none"
+        $("body").setAttribute("data-theme", "theme__light")
+        
+    }
+
+}
+$("#button__theme__light").addEventListener("click", changeModo)
+$("#button__theme__dark").addEventListener("click", changeModo)
+
+
 
 //panel Image
 //url
@@ -30,78 +58,98 @@ $("#url__image").addEventListener("input", ()=>{
 }
 meme()
 
-//color 
+
+
+
+//fileter image
+
+const changeMeme = ()=>{
+    
+        const brightness = $("#range__brightness").value
+        const opacity = $("#range__opacity").value
+        const contrast = $("#range__contrast").value
+        const blur = $("#range__blur").value
+        const grayscale = $("#range__grayscale").value
+        const sepia = $("#range__sepia").value
+        const hue = $("#range__hue").value
+        const saturate = $("#range__saturate").value
+        const invert = $("#range__invert").value
+        
+        
+      
+     $(".meme__image").style.filter = `brightness(${brightness})opacity(${opacity})contrast(${contrast}%)blur(${blur}px)grayscale(${grayscale}%)sepia(${sepia}%)hue-rotate(${hue}deg)saturate(${saturate}%)invert(${invert})`
+}
+
+$("#range__brightness").addEventListener("input",changeMeme)
+$("#range__opacity").addEventListener("input",changeMeme)
+$("#range__contrast").addEventListener("input",changeMeme)
+$("#range__blur").addEventListener("input",changeMeme)
+$("#range__grayscale").addEventListener("input",changeMeme)
+$("#range__sepia").addEventListener("input",changeMeme)
+$("#range__hue").addEventListener("input",changeMeme)
+$("#range__saturate").addEventListener("input",changeMeme)
+$("#range__invert").addEventListener("input",changeMeme)
+
 
 $("#background__color").addEventListener("input", ()=>{
     $(".meme__image").style.backgroundColor = $("#background__color").value
 })
 
 
+
+
+// $(".meme__image").style.filter = `sepia($("#range__sepia").value) hue-rotate($("#range__hue"))`
+// $("#range__sepia").value
+
 //range
 //brillo
 
-$("#range__brightness").addEventListener("input", ()=>{
-    const brightness = $("#range__brightness").value
-    $(".meme__image").style.filter = `brightness(${brightness}%)`
+// const brightness = $("#range__brightness").value
+// const opacity = $("#range__opacity").value
+// const contrast = $("#range__contrast").value
+// const blur = $("#range__blur").value
+// const grayscale = $("#range__grayscale").value
+// const sepia = $("#range__sepia").value
+// const hue = $("#range__hue").value
+// const saturate = $("#range__saturate").value
+// const invert = $("#range__invert").value
+// const rangeMeme = () =>{
     
-})
-//opacity
-$("#range__opacity").addEventListener("input", ()=>{
-    const opacity = $("#range__opacity").value
-    $(".meme__image").style.filter = `opacity(${opacity}%)`
+// $(".meme_image").style.filter = `brightness(${brightness}%)` + `opacity(${opacity}%)` + `contrast(${contrast}%)` + `blur(${blur}px)`+ `grayscale(${grayscale}%)`
+    
+  
+
+
+//     $(".meme__image").style.filter = 
+// }
+
+
+// $("#range__grayscale").addEventListener("input", ()=>{
+//     $(".meme__image").style.filter = `grayscale(${grayscale}%)`
+// })
+
+// $("#range__sepia").addEventListener("input", ()=>{
+//     $(".meme__image").style.filter = `sepia(${sepia}%)`
    
-})
-// contrast
-
-
-
-$("#range__contrast").addEventListener("input", ()=>{
-    const contrast = $("#range__contrast").value
-    $(".meme__image").style.filter = `contrast(${contrast}%)`
+// })
+// //hue
+// $("#range__hue").addEventListener("input", ()=>{
+//     $(".meme__image").style.filter = `hue-rotate(${hue}deg)`
  
-})
+// })
 
-
-//blur
-
-$("#range__blur").addEventListener("input", ()=>{
-    const blur = $("#range__blur").value
-    $(".meme__image").style.filter = `blur(${blur}px)`
+// $("#range__saturate").addEventListener("input", ()=>{
     
-})
-
-//grayscale
-
-$("#range__grayscale").addEventListener("input", ()=>{
-    const grayscale = $("#range__grayscale").value
-    $(".meme__image").style.filter = `grayscale(${grayscale}%)`
+//     $(".meme__image").style.filter = `saturate(${saturate}%)`
    
-})
+// })
 
-$("#range__sepia").addEventListener("input", ()=>{
-    const sepia = $("#range__sepia").value
-    $(".meme__image").style.filter = `sepia(${sepia}%)`
+// // invert
+// $("#range__invert").addEventListener("input", ()=>{
+    
+//     $(".meme__image").style.filter = `invert(${invert}%)`
    
-})
-//hue
-$("#range__hue").addEventListener("input", ()=>{
-    const hue = $("#range__hue").value
-    $(".meme__image").style.filter = `hue-rotate(${hue}deg)`
-   
-})
-
-$("#range__saturate").addEventListener("input", ()=>{
-    const saturate = $("#range__saturate").value
-    $(".meme__image").style.filter = `saturate(${saturate}%)`
-   
-})
-
-// invert
-$("#range__invert").addEventListener("input", ()=>{
-    const invert = $("#range__invert").value
-    $(".meme__image").style.filter = `invert(${invert}%)`
-   
-})
+// })
 
 
 //reset
@@ -110,13 +158,12 @@ $("#range__invert").addEventListener("input", ()=>{
      $("#range__opacity").value = 100
      $("#range__contrast").value=100
      $("#range__blur").value =0
-    $("#range__grayscale").value =0
+     $("#range__grayscale").value =0
      $("#range__sepia").value =0
      $("#range__hue").value =0
      $("#range__saturate").value =0
      $("#range__invert").value =0
-     meme()
-  
+       
  })
 // const urlImage = $("#url__image").value
 // $(".meme__image").style.backgroundImage = `url(${urlImage})`
@@ -135,3 +182,22 @@ $("#range__invert").addEventListener("input", ()=>{
 //     $(".panel__text").style.display = "flex"
 // })
 
+//panel text
+//TEXT UP AND DOWN
+$("#top__text").addEventListener("input", ()=>{
+    const topText = $("#top__text").value
+    $("#h2__top").innerHTML=topText
+})
+$("#bottom__text").addEventListener("input", ()=>{
+    const bottomText = $("#bottom__text").value
+    $("#h2__bottom").innerHTML=bottomText
+})
+/*
+$("#url__image").addEventListener("input", ()=>{
+    const urlImage = $("#url__image").value
+    $(".meme__image").style.backgroundImage = `url(${urlImage})`
+    $(".meme__image").style.backgroundSize ="cover"
+    $(".meme__image").style.backgroundPosition ="center"
+    return urlImage
+})
+*/

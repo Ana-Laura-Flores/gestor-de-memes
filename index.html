@@ -24,11 +24,11 @@
                 <i class="icon fas fa-font"></i>&nbsp; Texto
                
             </button>
-            <button class="button button__theme__dark">
+            <button class="button" id="button__theme__dark">
                 <i class="icon far fa-lightbulb"></i>
                 Modo Oscuro
             </button>
-            <button class="button button__theme__light">
+            <button class="button" id="button__theme__light">
                 <i class="icon far fa-lightbulb"></i>
                 Modo Claro
             </button>
@@ -37,14 +37,14 @@
     </header>
     <main>
         <section class="main__meme">
-            <div class="meme__text top">
-                <h2>TOP TEXT</h2>
+            <div class="meme__text top" >
+                <h2 id="h2__top">TOP TEXT</h2>
             </div>
             <div class="meme__image">
 
             </div>
             <div class="meme__text bottom">
-                <h2>BOTTON TEXT</h2>
+                <h2 id="h2__bottom" >BOTTOM TEXT</h2>
             </div>
         </section>
         <button class="meme__button">Descargar meme</button>
@@ -53,7 +53,7 @@
 
             <!-- Panel Image -->
             <div class="panel__image">
-            <span class="btn-close">&times;
+            <span class="btn__close__image">&times;
                 </span>
             <h3>IMAGEN</h3>
             <div class="panel__control">
@@ -76,35 +76,35 @@
                 <h4>FILTROS</h4>
                 <div class="panel__control">
                     <label for="brillo" >BRILLO</label>
-                    <input type="range" name="brillo" value="100"  min="0" max="100" id="range__brightness">
+                    <input type="range" name="brillo" value="1"  min="0" max="1" step="0.1" id="range__brightness">
                 </div>
                 <div class="panel__control">
                     <label for="opacidad" >OPACIDAD</label>
-                    <input type="range" name="opacidad" value="100" min="0" max="100" id="range__opacity">
+                    <input type="range" name="opacidad" value="1" min="0" max="1" step="0.1" id="range__opacity">
                 </div>
                 <div class="panel__control">
                     <label for="contraste" >CONTRASTE</label>
-                    <input type="range" name="contrast" value="100" min="0" max="200" id="range__contrast">
+                    <input type="range" name="contrast" value="100" min="0" max="1000" step="1" id="range__contrast">
                 </div>
                 <div class="panel__control">
                     <label for="desenfoque" >DESENFOQUE</label>
-                    <input type="range" name="desenfoque" value="0" min="0" max="10" id="range__blur">
+                    <input type="range" name="desenfoque" value="0" min="0" max="10" step="0.1" id="range__blur">
                 </div>
                 <div class="panel__control">
                     <label for="grises" >ESCALA DE GRISES</label>
-                    <input type="range" name="grises" value="0" min="0" max="100" id="range__grayscale">
+                    <input type="range" name="grises" value="0" min="0" max="100" step="1"  id="range__grayscale">
                 </div>
                 <div class="panel__control">
                     <label for="sepia" >SEPIA</label>
-                    <input type="range" name="sepia" value="0" min="0" max="100" id="range__sepia">
+                    <input type="range" name="sepia" value="0" min="0" step="1" max="100" id="range__sepia">
                 </div>
                 <div class="panel__control">
                     <label for="hue">HUE</label>
-                    <input type="range" value="0" min="0" max="100" name="hue" id="range__hue">
+                    <input type="range" value="0" min="0" max="359" step="1" name="hue" id="range__hue">
                 </div>
                 <div class="panel__control">
                     <label for="saturado">SATURADO</label>
-                    <input type="range" name="saturado" value="100" min="100" max="200" id="range__saturate">
+                    <input type="range" name="saturado" value="100" min="100" max="1000" step="10"   id="range__saturate">
                 </div>
                 <div class="panel__control">
                     <label for="negative">NEGATIVO</label>
@@ -118,7 +118,7 @@
             
             <!-- Panel Texto -->
             <div class="panel__text">
-                <span class="btn-close">&times;
+                <span class="btn__close__text">&times;
                 </span>
                 <h3>TEXTO</h3>
             
@@ -130,7 +130,7 @@
                     </div>    
                     <div class="panel__control__text">
                         <h4>INFERIOR</h4>
-                        <textarea aria-label="Texto Inferior" name="botton__text" id="botton__text" cols="30" rows="10">TEXTO INFERIOR</textarea>
+                        <textarea aria-label="Texto Inferior" name="botton__text" id="bottom__text" cols="30" rows="10">TEXTO INFERIOR</textarea>
                         <input type="checkbox" name="text" id="check">Sin Texto Inferior
                     </div>    
                 <div class="panel__font">
