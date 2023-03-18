@@ -1,7 +1,7 @@
 const $ = (selector) => document.querySelector(selector)
 
 
-//panel buttons 
+//panel buttons -----------------------------------------------------------
 
 $(".button__image").addEventListener("click", ()=>{
     if($(".panel__image").style.display="block"){
@@ -24,7 +24,7 @@ $(".btn__close__text").addEventListener("click", ()=>{
     $(".panel__text").style.display = "none"
 })
 
-//MODO CLARO ---- MODO OSCURO
+//MODO CLARO ---- MODO OSCURO -------------------------------------------
 const changeModo = () =>{
     const changeTheme =$("body").getAttribute("data-theme")
     if (changeTheme) {        
@@ -45,8 +45,8 @@ $("#button__theme__dark").addEventListener("click", changeModo)
 
 
 
-//panel Image
-//url
+//panel Image -----------------------------------------------------------
+//url -------------------------------------------------------------------
 const meme =()=>{
 $("#url__image").addEventListener("input", ()=>{
     const urlImage = $("#url__image").value
@@ -59,9 +59,7 @@ $("#url__image").addEventListener("input", ()=>{
 meme()
 
 
-
-
-//fileter image
+//filter image ---------------------------------------------------------------
 
 const changeMeme = ()=>{
     
@@ -74,9 +72,7 @@ const changeMeme = ()=>{
         const hue = $("#range__hue").value
         const saturate = $("#range__saturate").value
         const invert = $("#range__invert").value
-        
-        
-      
+                    
      $(".meme__image").style.filter = `brightness(${brightness})opacity(${opacity})contrast(${contrast}%)blur(${blur}px)grayscale(${grayscale}%)sepia(${sepia}%)hue-rotate(${hue}deg)saturate(${saturate}%)invert(${invert})`
 }
 
@@ -90,10 +86,16 @@ $("#range__hue").addEventListener("input",changeMeme)
 $("#range__saturate").addEventListener("input",changeMeme)
 $("#range__invert").addEventListener("input",changeMeme)
 
+// background color -----------------------------------------------------------
 
 $("#background__color").addEventListener("input", ()=>{
     $(".meme__image").style.backgroundColor = $("#background__color").value
 })
+
+// select blend-mode -----------------------------------------------------------
+
+
+
 
 
 
@@ -192,6 +194,31 @@ $("#bottom__text").addEventListener("input", ()=>{
     const bottomText = $("#bottom__text").value
     $("#h2__bottom").innerHTML=bottomText
 })
+
+
+// check text 
+const hideTexts = ()=>{
+    const checked = $("#check__top").checked
+    const checkedBottom = $("#check__bottom").checked
+    if (checked){
+        $("#div__top").classList.add ("hidden")
+    }else{
+        $("#div__top").classList.remove ("hidden")
+    }
+    if(checkedBottom){
+        $("#div__bottom").classList.add ("hidden")
+    }else{
+        $("#div__bottom").classList.remove ("hidden")
+    }
+
+}
+$("#check__bottom").addEventListener("input", hideTexts)
+$("#check__top").addEventListener("input", hideTexts)
+
+
+
+// 
+
 /*
 $("#url__image").addEventListener("input", ()=>{
     const urlImage = $("#url__image").value
