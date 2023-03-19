@@ -88,11 +88,18 @@ $("#range__invert").addEventListener("input",changeMeme)
 
 // background color -----------------------------------------------------------
 
+
 $("#background__color").addEventListener("input", ()=>{
     $(".meme__image").style.backgroundColor = $("#background__color").value
 })
 
 // select blend-mode -----------------------------------------------------------
+const blendMode =()=>{
+    $("#panel__control__select").value =    $(".meme__image").style.backgroundBlendMode    
+}
+blendMode()
+
+
 
 
 
@@ -214,6 +221,57 @@ const hideTexts = ()=>{
 }
 $("#check__bottom").addEventListener("input", hideTexts)
 $("#check__top").addEventListener("input", hideTexts)
+
+// COLOR TEXT
+  
+$("#text__color").addEventListener("input", ()=>{
+    const textColor = $("#text__color").value
+    $("#h2__top").style.color = textColor
+    $("#h2__bottom").style.color =textColor
+})
+$("#text__back").addEventListener("input", ()=>{
+    const textColor = $("#text__back").value
+    $("#div__top").style.backgroundColor = textColor
+    $("#div__bottom").style.backgroundColor =textColor
+})
+
+$("#check__back__text").addEventListener("input", ()=>{
+    const checked = $("#check__back__text").checked
+    if(checked){
+        $("#div__top").style.backgroundColor = "transparent"
+    }else{
+        $("#div__top").style.backgroundColor = "var(--background-secondary)"
+    }
+    
+})
+
+//FONT-FAMILY
+
+$("#fonts__select").addEventListener("input",()=>{
+    const familyFont = $("#fonts__select").value
+    $("#h2__top").style.fontFamily = familyFont
+    $("#h2__bottom").style.fontFamily = familyFont
+})
+
+$("#text_size_change").addEventListener("input",()=>{
+    const familyFont = $("#text_size_change").value
+    $("#h2__top").style.fontSize = `${familyFont}px`
+    $("#h2__bottom").style.fontSize = `${familyFont}px`
+})
+const buttonAlign =()=>{
+    $("#align__left").addEventListener("click",()=>{
+        $("#h2__top").style.textAlign = "left"
+        $("#h2__bottom").style.textAlign = "left"
+    })
+    $("#align__right").addEventListener("click",()=>{
+        $("#h2__top").style.textAlign = "right"
+        $("#h2__bottom").style.textAlign = "right"
+    })
+
+    
+}
+buttonAlign()
+
 
 
 

@@ -69,7 +69,7 @@
                     <option value="oscurecer">Oscurecer</option>
                     <option value="diferencia">Diferencia</option>
                     <option value="luminocidad">Luminocidad</option>
-                    <option value="multiplicar">Multiplicar</option>
+                    <option value="multiply">Multiplicar</option>
                 </select>
             </div>
             <form class="panel__control range">
@@ -149,17 +149,18 @@
                     <div class="container__controls_text">
                         
                         <div class="container__controls__align">
-                            <input type="number" value="51" name="font-size" class="text__size">
+                            <input type="number" value="51" name="font-size" id="text_size_change"
+                            class="text__size">
                             <button class="button__align" aria-label="alineacion izquierda" id="align__left" ><i class="fas fa-align-left"></i></button>
                             <button class="button__align" aria-label="alineacion centro" id="align__center" ><i class="fas fa-align-center"></i></button>
                             <button class="button__align" id="align__right" aria-label="alineacion derecha"><i class="fas fa-align-right"></i></button>
                         </div>
                         <div class="container__color__text">
                             <label for="color" >COLOR</label>
-                            <input type="color" name="color" id="text__back">
+                            <input type="color" name="color" id="text__color">
                             <label for="fondo">FONDO</label>
-                            <input type="color" name="fondo" id="text__color">
-                            <input type="checkbox" name="" id="check">Fondo transparente
+                            <input type="color" name="fondo" id="text__back">
+                            <input type="checkbox" name="" id="check__back__text">Fondo transparente
                         </div>
                         <div class="container__stroke">
                             <h4>CONTORNO</h4>

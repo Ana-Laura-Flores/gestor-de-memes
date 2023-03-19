@@ -106,6 +106,7 @@ main{
     background-color: var(--button-color-hover);
     color: var(--font-color-primary);
     
+    
 }
 
 h1, h2 {
@@ -234,7 +235,6 @@ button{
   height: 30px;
   border: none;
   margin: 2px 0;
-  
   
   background-color: var(--background-primary);
 }
