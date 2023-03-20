@@ -40,7 +40,7 @@
             <div class="meme__text top" id="div__top">
                 <h2 id="h2__top">TOP TEXT</h2>
             </div>
-            <div class="meme__image"></div>
+            <div class="meme__image" id="image__meme"></div>
 
            
             <div class="meme__text bottom"id="div__bottom">
@@ -65,10 +65,10 @@
                 <input type="color" id="background__color">#FFFF
                 <select name="" id="panel__control__select" class="panel__control">
                     <option value="ninguno" id="none">Ninguno</option>
-                    <option value="aclarar" id="" >Aclarar</option>
-                    <option value="oscurecer">Oscurecer</option>
-                    <option value="diferencia">Diferencia</option>
-                    <option value="luminocidad">Luminocidad</option>
+                    <option value="lighten" id="lighten" >Aclarar</option>
+                    <option value="darken">Oscurecer</option>
+                    <option value="difference">Diferencia</option>
+                    <option value="luminosity">Luminocidad</option>
                     <option value="multiply">Multiplicar</option>
                 </select>
             </div>
@@ -126,12 +126,16 @@
                     <div class="panel__control__text">
                         <h4>SUPERIOR</h4>
                         <textarea aria-label="Texto Superior" name="top__text" id="top__text" cols="30" rows="10">TEXTO SUPERIOR</textarea>
-                        <input type="checkbox" name="text" id="check__top">Sin Texto superior
+                        <div class="check__text">
+                            <input type="checkbox" name="text" id="check__top">&nbsp; Sin Texto superior
+                        </div>
                     </div>    
                     <div class="panel__control__text">
                         <h4>INFERIOR</h4>
                         <textarea aria-label="Texto Inferior" name="botton__text" id="bottom__text" cols="30" rows="10">TEXTO INFERIOR</textarea>
-                        <input type="checkbox" name="text" id="check__bottom">Sin Texto Inferior
+                        <div class="check__text">
+                            <input type="checkbox" name="text" id="check__bottom">&nbsp; Sin Texto Inferior
+                        </div>
                     </div>    
                 <div class="panel__font">
                     <div class="family__fonts">
@@ -160,14 +164,14 @@
                             <input type="color" name="color" id="text__color">
                             <label for="fondo">FONDO</label>
                             <input type="color" name="fondo" id="text__back">
-                            <input type="checkbox" name="" id="check__back__text">Fondo transparente
+                            <input type="checkbox" name="" id="check__back__text">&nbsp; Fondo transparente
                         </div>
                         <div class="container__stroke">
                             <h4>CONTORNO</h4>
                             <div class="stroke_buttons">
-                                <button class="button__stroke stroke__none">Ninguno</button>
-                                <button class="button__stroke stroke__light">Claro</button>
-                                <button class="button__stroke stroke__dark">Oscuro</button>
+                                <button class="button__stroke" id="stroke__none">Ninguno</button>
+                                <button class="button__stroke" id="stroke__light">Claro</button>
+                                <button class="button__stroke" id="stroke__dark">Oscuro</button>
                             </div>
                         </div>
                         <div class="container__space">

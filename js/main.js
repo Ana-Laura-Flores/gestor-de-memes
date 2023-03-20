@@ -95,101 +95,40 @@ $("#background__color").addEventListener("input", ()=>{
 
 // select blend-mode -----------------------------------------------------------
 const blendMode =()=>{
-    $("#panel__control__select").value =    $(".meme__image").style.backgroundBlendMode    
+    $("#panel__control__select").addEventListener("input", ()=>{
+        $(".meme__image").style.backgroundBlendMode = $("#panel__control__select").value
+    })        
 }
 blendMode()
 
 
 
+//reset ----- REVISAR
+$(".panel__control__restore").addEventListener("click", ()=>{
+    $(".meme__image").backgroundImage="none"
+    const urlImage = $("#url__image").value
+    $(".meme__image").style.backgroundImage = `url(${urlImage})`
+    $(".meme__image").style.backgroundSize ="cover"
+    $(".meme__image").style.backgroundPosition ="center"
+})
 
+//  $(".panel__control__restore").addEventListener("click", ()=>{
+//      const brightness = $("#range__brightness").value = 1
+//     const opacity =$("#range__opacity").value = 1
+//      const contrast = $("#range__contrast").value=100
+//      const blur =$("#range__blur").value =0
+//      const grayscale =$("#range__grayscale").value =0
+//      const sepia=$("#range__sepia").value =0
+//      const hue = $("#range__hue").value =0
+//      const saturate=$("#range__saturate").value =100
+//      const invert=$("#range__invert").value =0
 
-
-
-
-
-// $(".meme__image").style.filter = `sepia($("#range__sepia").value) hue-rotate($("#range__hue"))`
-// $("#range__sepia").value
-
-//range
-//brillo
-
-// const brightness = $("#range__brightness").value
-// const opacity = $("#range__opacity").value
-// const contrast = $("#range__contrast").value
-// const blur = $("#range__blur").value
-// const grayscale = $("#range__grayscale").value
-// const sepia = $("#range__sepia").value
-// const hue = $("#range__hue").value
-// const saturate = $("#range__saturate").value
-// const invert = $("#range__invert").value
-// const rangeMeme = () =>{
-    
-// $(".meme_image").style.filter = `brightness(${brightness}%)` + `opacity(${opacity}%)` + `contrast(${contrast}%)` + `blur(${blur}px)`+ `grayscale(${grayscale}%)`
-    
-  
-
-
-//     $(".meme__image").style.filter = 
-// }
-
-
-// $("#range__grayscale").addEventListener("input", ()=>{
-//     $(".meme__image").style.filter = `grayscale(${grayscale}%)`
-// })
-
-// $("#range__sepia").addEventListener("input", ()=>{
-//     $(".meme__image").style.filter = `sepia(${sepia}%)`
-   
-// })
-// //hue
-// $("#range__hue").addEventListener("input", ()=>{
-//     $(".meme__image").style.filter = `hue-rotate(${hue}deg)`
- 
-// })
-
-// $("#range__saturate").addEventListener("input", ()=>{
-    
-//     $(".meme__image").style.filter = `saturate(${saturate}%)`
-   
-// })
-
-// // invert
-// $("#range__invert").addEventListener("input", ()=>{
-    
-//     $(".meme__image").style.filter = `invert(${invert}%)`
-   
-// })
-
-
-//reset
- $(".panel__control__restore").addEventListener("click", ()=>{
-     $("#range__brightness").value = 100
-     $("#range__opacity").value = 100
-     $("#range__contrast").value=100
-     $("#range__blur").value =0
-     $("#range__grayscale").value =0
-     $("#range__sepia").value =0
-     $("#range__hue").value =0
-     $("#range__saturate").value =0
-     $("#range__invert").value =0
+      
+                   
+//      $(".meme__image").style.filter = `brightness(${brightness})opacity(${opacity})contrast(${contrast}%)blur(${blur}px)grayscale(${grayscale}%)sepia(${sepia}%)hue-rotate(${hue}deg)saturate(${saturate}%)invert(${invert})`
        
- })
-// const urlImage = $("#url__image").value
-// $(".meme__image").style.backgroundImage = `url(${urlImage})`
-// $(".meme__image").style.backgroundSize ="cover"
-// $(".meme__image").style.backgroundPosition ="center"
+//  })
 
-
-
-// $(".panel__control__restore").addEventListener("click", ()=>{
-//     $(".range").reset()
-// })
-
-
-
-// $(".button__text").addEventListener("click", ()=>{
-//     $(".panel__text").style.display = "flex"
-// })
 
 //panel text
 //TEXT UP AND DOWN
@@ -236,16 +175,34 @@ $("#text__back").addEventListener("input", ()=>{
 })
 
 $("#check__back__text").addEventListener("input", ()=>{
-    const checked = $("#check__back__text").checked
-    if(checked){
+    const checkedText = $("#check__back__text").checked
+    if(checkedText){
         $("#div__top").style.backgroundColor = "transparent"
+        $("#div__bottom").style.backgroundColor = "transparent"
+        $("#image__meme").style.backgroundColor = "transparent"
+        $("#image__meme").style.backgroundImage = "none"
+        $("#image__meme").classList.add(".meme__image__transparent")
+        const urlImage = $("#url__image").value
+        $(".main__meme").style.backgroundImage = `url(${urlImage})`
+        $(".main__meme").style.backgroundSize ="cover"
+    $(".main__meme").style.backgroundPosition ="center"
+        
+
     }else{
         $("#div__top").style.backgroundColor = "var(--background-secondary)"
+        $("#div__bottom").style.backgroundColor = "var(--background-secondary)"
+        const urlImage = $("#url__image").value
+        $(".meme__image").style.backgroundImage = `url(${urlImage})`
+        $(".meme__image").style.backgroundSize ="cover"
+        $(".meme__image").style.backgroundPosition ="center"
+        $(".main__meme").style.backgroundImage="none"
+        
+
     }
     
 })
 
-//FONT-FAMILY
+//FONT-FAMILY -----------------------------
 
 $("#fonts__select").addEventListener("input",()=>{
     const familyFont = $("#fonts__select").value
@@ -253,29 +210,74 @@ $("#fonts__select").addEventListener("input",()=>{
     $("#h2__bottom").style.fontFamily = familyFont
 })
 
+//FONT SIZE -------------------------------------
 $("#text_size_change").addEventListener("input",()=>{
-    const familyFont = $("#text_size_change").value
-    $("#h2__top").style.fontSize = `${familyFont}px`
-    $("#h2__bottom").style.fontSize = `${familyFont}px`
+    const familySize = $("#text_size_change").value
+    $("#h2__top").style.fontSize = `${familySize}px`
+    $("#h2__bottom").style.fontSize = `${familySize}px`
 })
+
+// TEXT ALIGN -------------------------------------
 const buttonAlign =()=>{
     $("#align__left").addEventListener("click",()=>{
-        $("#h2__top").style.textAlign = "left"
-        $("#h2__bottom").style.textAlign = "left"
-    })
+        $("#div__top").style.justifyContent = "left"
+        $("#h2__top").style.paddingLeft = "15px"
+        $("#div__bottom").style.justifyContent = "left"
+        $("#h2__bottom").style.paddingLeft = "15px"
+    }) 
     $("#align__right").addEventListener("click",()=>{
-        $("#h2__top").style.textAlign = "right"
-        $("#h2__bottom").style.textAlign = "right"
+        $("#div__top").style.justifyContent = "right"
+        $("#h2__top").style.paddingRight = "15px"
+        $("#div__bottom").style.justifyContent = "right"
+        $("#h2__bottom").style.paddingRight = "15px"
     })
-
-    
+    $("#align__center").addEventListener("click",()=>{
+        $("#div__top").style.justifyContent = "center"
+        $("#div__bottom").style.justifyContent = "center"
+    })
 }
 buttonAlign()
 
+// STROKE --------------------
 
+const strokeText = () =>{
+    $("#stroke__none").addEventListener("click", ()=>{
+        $("#h2__top").style.webkitTextStroke = "0"
+        $("#h2__bottom").style.webkitTextStroke = "0"
+    })
+    $("#stroke__light").addEventListener("click", ()=>{
+        $("#h2__top").style.webkitTextStroke = "1px"
+        $("#h2__bottom").style.webkitTextStroke = "1px currentColor"
+    })
+    $("#stroke__dark").addEventListener("click", ()=>{
+        $("#h2__top").style.webkitTextStroke = "2px"
+        $("#h2__bottom").style.webkitTextStroke = "2px currentColor"
+    })
+    
+}
+strokeText()
+// SPACE -----------
 
+const spaceText = () =>{
+    $("#text__space").addEventListener("input", ()=>{
+        const space = $("#text__space").value
+        $("#h2__top").style.letterSpacing = `${space}px`
+        $("#h2__bottom").style.letterSpacing = `${space}px`
+    })
+}
+spaceText()
 
-// 
+// LEADING -----------
+
+const leadingText = () =>{
+    
+    $("#text__leading").addEventListener("input", ()=>{
+        const leading = $("#text__leading").value
+        $("#h2__top").style.lineHeight = `${leading}`
+        $("#h2__bottom").style.lineHeight = `${leading}`
+    })
+}
+leadingText()
 
 /*
 $("#url__image").addEventListener("input", ()=>{
