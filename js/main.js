@@ -43,7 +43,15 @@ const changeModo = () =>{
 $("#button__theme__light").addEventListener("click", changeModo)
 $("#button__theme__dark").addEventListener("click", changeModo)
 
+// BUTTON DOWNLOAD
 
+const download = ()=>{
+    
+    domtoimage.toBlob($('.main__meme')).then((blob) => {
+        saveAs(blob, 'mi-meme.png')
+      })
+}
+$(".meme__button").addEventListener("click",download)
 
 //panel Image -----------------------------------------------------------
 //url -------------------------------------------------------------------
@@ -73,7 +81,8 @@ const changeMeme = ()=>{
         const saturate = $("#range__saturate").value
         const invert = $("#range__invert").value
                     
-     $(".meme__image").style.filter = `brightness(${brightness})opacity(${opacity})contrast(${contrast}%)blur(${blur}px)grayscale(${grayscale}%)sepia(${sepia}%)hue-rotate(${hue}deg)saturate(${saturate}%)invert(${invert})`
+    $(".meme__image").style.filter = `brightness(${brightness})opacity(${opacity})contrast(${contrast}%)blur(${blur}px)grayscale(${grayscale}%)sepia(${sepia}%)hue-rotate(${hue}deg)saturate(${saturate}%)invert(${invert})`
+    
 }
 
 $("#range__brightness").addEventListener("input",changeMeme)
@@ -174,30 +183,29 @@ $("#text__back").addEventListener("input", ()=>{
     $("#div__bottom").style.backgroundColor =textColor
 })
 
+
+//BACK TRANSPARENT ----------------------
+
+
 $("#check__back__text").addEventListener("input", ()=>{
     const checkedText = $("#check__back__text").checked
+   
+    
     if(checkedText){
-        $("#div__top").style.backgroundColor = "transparent"
-        $("#div__bottom").style.backgroundColor = "transparent"
-        $("#image__meme").style.backgroundColor = "transparent"
-        $("#image__meme").style.backgroundImage = "none"
-        $("#image__meme").classList.add(".meme__image__transparent")
-        const urlImage = $("#url__image").value
-        $(".main__meme").style.backgroundImage = `url(${urlImage})`
-        $(".main__meme").style.backgroundSize ="cover"
-    $(".main__meme").style.backgroundPosition ="center"
+        $("#div__top").classList.add("text__image__change")
+        
+        $("#div__bottom").classList.add("text__image__change")
+        $("#image__meme").style.zIndex ="0"
+        $("#image__meme").style.height = "500px"
+        
         
 
+        
     }else{
-        $("#div__top").style.backgroundColor = "var(--background-secondary)"
-        $("#div__bottom").style.backgroundColor = "var(--background-secondary)"
-        const urlImage = $("#url__image").value
-        $(".meme__image").style.backgroundImage = `url(${urlImage})`
-        $(".meme__image").style.backgroundSize ="cover"
-        $(".meme__image").style.backgroundPosition ="center"
-        $(".main__meme").style.backgroundImage="none"
+        $("#div__top").classList.remove("text__image__change")
+        $("#div__bottom").classList.remove("text__image__change")
+        $("#image__meme").style.height = "300px"
         
-
     }
     
 })
