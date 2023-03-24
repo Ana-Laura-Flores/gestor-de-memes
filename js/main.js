@@ -61,7 +61,7 @@ $("#url__image").addEventListener("input", ()=>{
     $(".meme__image").style.backgroundImage = `url(${urlImage})`
     $(".meme__image").style.backgroundSize ="cover"
     $(".meme__image").style.backgroundPosition ="center"
-    return urlImage
+    
 })
 }
 meme()
@@ -82,6 +82,7 @@ const changeMeme = ()=>{
         const invert = $("#range__invert").value
                     
     $(".meme__image").style.filter = `brightness(${brightness})opacity(${opacity})contrast(${contrast}%)blur(${blur}px)grayscale(${grayscale}%)sepia(${sepia}%)hue-rotate(${hue}deg)saturate(${saturate}%)invert(${invert})`
+    
     
 }
 
@@ -113,30 +114,30 @@ blendMode()
 
 
 //reset ----- REVISAR
-$(".panel__control__restore").addEventListener("click", ()=>{
-    $(".meme__image").backgroundImage="none"
-    const urlImage = $("#url__image").value
-    $(".meme__image").style.backgroundImage = `url(${urlImage})`
-    $(".meme__image").style.backgroundSize ="cover"
-    $(".meme__image").style.backgroundPosition ="center"
-})
+// $(".panel__control__restore").addEventListener("click", ()=>{
+//     $(".meme__image").backgroundImage="none"
+//     const urlImage = $("#url__image").value
+//     $(".meme__image").style.backgroundImage = `url(${urlImage})`
+//     $(".meme__image").style.backgroundSize ="cover"
+//     $(".meme__image").style.backgroundPosition ="center"
+// })
 
-//  $(".panel__control__restore").addEventListener("click", ()=>{
-//      const brightness = $("#range__brightness").value = 1
-//     const opacity =$("#range__opacity").value = 1
-//      const contrast = $("#range__contrast").value=100
-//      const blur =$("#range__blur").value =0
-//      const grayscale =$("#range__grayscale").value =0
-//      const sepia=$("#range__sepia").value =0
-//      const hue = $("#range__hue").value =0
-//      const saturate=$("#range__saturate").value =100
-//      const invert=$("#range__invert").value =0
+  $(".panel__control__restore").addEventListener("click", ()=>{
+     const brightness = $("#range__brightness").value = 1
+     const opacity =$("#range__opacity").value = 1
+      const contrast = $("#range__contrast").value=100
+     const blur =$("#range__blur").value =0
+      const grayscale =$("#range__grayscale").value =0
+      const sepia=$("#range__sepia").value =0
+      const hue = $("#range__hue").value =0
+      const saturate=$("#range__saturate").value =100
+    const invert=$("#range__invert").value =0
 
       
                    
-//      $(".meme__image").style.filter = `brightness(${brightness})opacity(${opacity})contrast(${contrast}%)blur(${blur}px)grayscale(${grayscale}%)sepia(${sepia}%)hue-rotate(${hue}deg)saturate(${saturate}%)invert(${invert})`
+      $(".meme__image").style.filter = `brightness(${brightness})opacity(${opacity})contrast(${contrast}%)blur(${blur}px)grayscale(${grayscale}%)sepia(${sepia}%)hue-rotate(${hue}deg)saturate(${saturate}%)invert(${invert})`
        
-//  })
+  })
 
 
 //panel text
@@ -186,7 +187,84 @@ $("#text__back").addEventListener("input", ()=>{
 
 //BACK TRANSPARENT ----------------------
 
+$("#check__back__text").addEventListener("input", ()=>{
+    const checkedText = $("#check__back__text").checked
+    if(checkedText){
+        $("#div__top").style.backgroundColor = "transparent"
+        $("#div__bottom").style.backgroundColor = "transparent"
+        $("#image__meme").style.backgroundColor = "transparent"
+        $("#image__meme").style.backgroundImage = "none"
+        $("#image__meme").classList.add(".meme__image__transparent")
+        const urlImage = $("#url__image").value
+        $(".main__meme").style.backgroundImage = `url(${urlImage})`
+   
+    
+            const brightness = $("#range__brightness").value
+            const opacity = $("#range__opacity").value
+            const contrast = $("#range__contrast").value
+            const blur = $("#range__blur").value
+            const grayscale = $("#range__grayscale").value
+            const sepia = $("#range__sepia").value
+            const hue = $("#range__hue").value
+            const saturate = $("#range__saturate").value
+            const invert = $("#range__invert").value
+                        
+        $(".main__meme").style.filter = `brightness(${brightness})opacity(${opacity})contrast(${contrast}%)blur(${blur}px)grayscale(${grayscale}%)sepia(${sepia}%)hue-rotate(${hue}deg)saturate(${saturate}%)invert(${invert})`
+        
+        
+    
+    
+    
+        $(".main__meme").style.backgroundSize ="cover"
+    $(".main__meme").style.backgroundPosition ="center"
 
+
+    }else{
+        $("#div__top").style.backgroundColor = "var(--background-secondary)"
+        $("#div__bottom").style.backgroundColor = "var(--background-secondary)"
+        const urlImage = $("#url__image").value
+        $(".meme__image").style.backgroundImage = `url(${urlImage})`
+        $(".meme__image").style.backgroundSize ="cover"
+        $(".meme__image").style.backgroundPosition ="center"
+        $(".main__meme").style.backgroundImage="none"
+        $(".main__meme").style.filter="none"
+
+
+    }
+
+})
+
+
+
+
+// $("#check__back__text").addEventListener("input", ()=>{
+    
+//     const checkedText = $("#check__back__text").checked
+//     if(checkedText){
+//         $("#div__top").style.backgroundColor = "transparent"
+//         $("#div__bottom").style.backgroundColor = "transparent"
+//         $("#div__bottom").classList.add("text__image_change")        
+//         $("#div__top").classList.add("text__image__change") 
+//         $("#main__meme").classList.add("meme__image__change")
+        
+
+//     }else{
+//         $("#div__top").style.backgroundColor = "var(--background-secondary)"
+//         $("#div__bottom").style.backgroundColor = "var(--background-secondary)"
+//         $("#div__top").classList.remove("text__image__change")
+//         $("#div__bottom").classList.remove("text__image_change")
+
+//     }
+
+// })
+
+
+
+
+
+///******************************************************* */
+
+/*
 $("#check__back__text").addEventListener("input", ()=>{
     const checkedText = $("#check__back__text").checked
    
@@ -209,7 +287,7 @@ $("#check__back__text").addEventListener("input", ()=>{
     }
     
 })
-
+*/
 //FONT-FAMILY -----------------------------
 
 $("#fonts__select").addEventListener("input",()=>{
@@ -269,8 +347,10 @@ strokeText()
 const spaceText = () =>{
     $("#text__space").addEventListener("input", ()=>{
         const space = $("#text__space").value
-        $("#h2__top").style.letterSpacing = `${space}px`
-        $("#h2__bottom").style.letterSpacing = `${space}px`
+        $("#div__top").style.paddingTop = `${space}px`
+        $("#div__bottom").style.paddingTop = `${space}px`
+        $("#div__top").style.paddingBottom = `${space}px`
+        $("#div__bottom").style.paddingBottom = `${space}px`
     })
 }
 spaceText()
@@ -294,5 +374,30 @@ $("#url__image").addEventListener("input", ()=>{
     $(".meme__image").style.backgroundSize ="cover"
     $(".meme__image").style.backgroundPosition ="center"
     return urlImage
+})
+*/
+
+/*
+$("#check__back__text").addEventListener("input", ()=>{
+    
+    const checkedText = $("#check__back__text").checked
+    if(checkedText){
+        $("#div__top").style.backgroundColor = "transparent"
+        $("#div__bottom").style.backgroundColor = "transparent"
+        $("#image__meme").style.position = "absolute"
+        
+
+    }else{
+        $("#div__top").style.backgroundColor = "var(--background-secondary)"
+        $("#div__bottom").style.backgroundColor = "var(--background-secondary)"
+        const urlImage = $("#url__image").value
+        $(".meme__image").style.backgroundImage = `url(${urlImage})`
+        $(".meme__image").style.backgroundSize ="cover"
+        $(".meme__image").style.backgroundPosition ="center"
+        $(".main__meme").style.backgroundImage="none"
+
+
+    }
+
 })
 */
