@@ -155,7 +155,7 @@ h4{
     
 }
 .panel__image{
-    display: none;
+    display: block;
     width: 100%;
     height:100vh;
     background-color: var(--background-secondary);
@@ -485,8 +485,30 @@ input[type=range] {
   
   
   @media (max-width:700px){
-    .panel__container{
+
+     header{
+      width: 100%;
+      align-self: center;
+    }
+    main{
+      width: 100%;
+    } 
+    .main__meme{
+      width: 90%;
+    }
+    .meme__image{
       width: 100%;
     }
+    .panel__container{
+      width: 100%;
+     
+    }
+
+    .botonera{
+      width: 100%;
+      justify-content: center;
+    }
   }
+  
+ 
 

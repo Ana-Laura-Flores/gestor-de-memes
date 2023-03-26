@@ -53,7 +53,7 @@
         </section>
         <button class="meme__button"> <i class="fas fa-download"></i>&nbsp;Descargar meme</button>
     
-        <aside class="panel__container">
+        <aside class="panel__container" id="aside">
 
             <!-- Panel Image -->
             <div class="panel__image">
@@ -88,7 +88,7 @@
                 </div>
                 <div class="panel__control">
                     <label for="contraste" >CONTRASTE</label>
-                    <input type="range" name="contrast" value="100" min="0" max="1000" step="1" id="range__contrast">
+                    <input type="range" name="contrast" value="100" min="100" max="1000" step="1" id="range__contrast">
                 </div>
                 <div class="panel__control">
                     <label for="desenfoque" >DESENFOQUE</label>
@@ -157,7 +157,7 @@
                     <div class="container__controls_text">
                         
                         <div class="container__controls__align">
-                            <input type="number" value="51" name="font-size" id="text_size_change"
+                            <input type="number" value="16" name="font-size" id="text_size_change"
                             class="text__size">
                             <button class="button__align" aria-label="alineacion izquierda" id="align__left" ><i class="fas fa-align-left"></i></button>
                             <button class="button__align" aria-label="alineacion centro" id="align__center" ><i class="fas fa-align-center"></i></button>
@@ -180,7 +180,7 @@
                         </div>
                         <div class="container__space">
                             <h4>ESPACIADO</h4>
-                            <input type="number" name="space" id="text__space">
+                            <input type="number" name="space" value="30" id="text__space">
                         </div>
                         <div class="leading">
                             <h4>INTERLINEADO</h4>
