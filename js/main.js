@@ -5,6 +5,7 @@ const $ = (selector) => document.querySelector(selector)
 
 $(".button__image").addEventListener("click", ()=>{
     if($(".panel__image").style.display="block"){
+        $(".panel__container").style.display="flex"
         $(".panel__text").style.display="none"
 
     }
@@ -12,18 +13,22 @@ $(".button__image").addEventListener("click", ()=>{
 
 $(".button__text").addEventListener("click", ()=>{
     if($(".panel__text").style.display="block"){
+        $(".panel__container").style.display="flex"
         $(".panel__image").style.display="none"
     }
 })
 
 // ---------------- BTN CLOSE ----------------------
-$(".btn__close__image").addEventListener("click", ()=>{
-    $(".panel__image").style.display = "none"
-})
-$(".btn__close__text").addEventListener("click", ()=>{
-    $(".panel__text").style.display = "none"
-})
-
+const btnClose =()=>{
+    $(".btn__close__image").addEventListener("click", ()=>{
+        $("#aside").style.display = "none"
+    })
+    $(".btn__close__text").addEventListener("click", ()=>{
+        $("#aside").style.display = "none"
+    })
+        
+}
+btnClose()
 
 //MODO CLARO ---- MODO OSCURO -------------------------------------------
 const changeModo = () =>{
@@ -114,30 +119,19 @@ const blendMode =()=>{
 blendMode()
 
 
-
-//reset ----- REVISAR
-// $(".panel__control__restore").addEventListener("click", ()=>{
-//     $(".meme__image").backgroundImage="none"
-//     const urlImage = $("#url__image").value
-//     $(".meme__image").style.backgroundImage = `url(${urlImage})`
-//     $(".meme__image").style.backgroundSize ="cover"
-//     $(".meme__image").style.backgroundPosition ="center"
-// })
-
+// RESET IMAGE ------------------------------------
   $(".panel__control__restore").addEventListener("click", ()=>{
-     const brightness = $("#range__brightness").value = 1
-     const opacity =$("#range__opacity").value = 1
-      const contrast = $("#range__contrast").value=100
-     const blur =$("#range__blur").value =0
-      const grayscale =$("#range__grayscale").value =0
-      const sepia=$("#range__sepia").value =0
-      const hue = $("#range__hue").value =0
-      const saturate=$("#range__saturate").value =100
+    const brightness = $("#range__brightness").value = 1
+    const opacity =$("#range__opacity").value = 1
+    const contrast = $("#range__contrast").value=100
+    const blur =$("#range__blur").value =0
+    const grayscale =$("#range__grayscale").value =0
+    const sepia=$("#range__sepia").value =0
+    const hue = $("#range__hue").value =0
+    const saturate=$("#range__saturate").value =100
     const invert=$("#range__invert").value =0
-
       
-                   
-      $(".meme__image").style.filter = `brightness(${brightness})opacity(${opacity})contrast(${contrast}%)blur(${blur}px)grayscale(${grayscale}%)sepia(${sepia}%)hue-rotate(${hue}deg)saturate(${saturate}%)invert(${invert})`
+    $(".meme__image").style.filter = `brightness(${brightness})opacity(${opacity})contrast(${contrast}%)blur(${blur}px)grayscale(${grayscale}%)sepia(${sepia}%)hue-rotate(${hue}deg)saturate(${saturate}%)invert(${invert})`
        
   })
 
@@ -174,18 +168,20 @@ $("#check__bottom").addEventListener("input", hideTexts)
 $("#check__top").addEventListener("input", hideTexts)
 
 // COLOR TEXT
-  
-$("#text__color").addEventListener("input", ()=>{
-    const textColor = $("#text__color").value
-    $("#h2__top").style.color = textColor
-    $("#h2__bottom").style.color =textColor
-})
-$("#text__back").addEventListener("input", ()=>{
-    const textColor = $("#text__back").value
-    $("#div__top").style.backgroundColor = textColor
-    $("#div__bottom").style.backgroundColor =textColor
-})
-
+const colorText =()=>{
+    $("#text__color").addEventListener("input", ()=>{
+        const textColor = $("#text__color").value
+        $("#h2__top").style.color = textColor
+        $("#h2__bottom").style.color =textColor
+    })
+    $("#text__back").addEventListener("input", ()=>{
+        const textColor = $("#text__back").value
+        $("#div__top").style.backgroundColor = textColor
+        $("#div__bottom").style.backgroundColor =textColor
+    })
+    
+}  
+colorText()
 
 //BACK TRANSPARENT ----------------------
 
@@ -307,47 +303,8 @@ const leadingText = () =>{
 }
 leadingText()
 
-// function media query
 
-
-
-
-
-
-const asideNone = window.matchMedia( "(max-width: 700px)");
-
-if (asideNone.matches) {
-    $(".panel__container").style.display="none"
-    
-    $(".button__image").addEventListener("click", ()=>{
-        $(".panel__container").style.display="flex"
-        $(".panel__image").style.display ="block"
-    })
-    $(".button__text").addEventListener("click", ()=>{
-        $(".panel__container").style.display="flex"
-        $(".panel__text").style.display ="block"
-       
-    })
-    $(".btn__close__image").addEventListener("click", ()=>{
-        $(".panel__container").style.display="none"
-    })
-    $(".btn__close__text").addEventListener("click", ()=>{
-        $(".panel__container").style.display="none"
-    })
-} 
 
 
 
     
-
-
-
-
-/*
-const view = ()=>{
-
-}
-
-
-const reSize = window.matchMedia( "(max-width: 700px)")
-*/
