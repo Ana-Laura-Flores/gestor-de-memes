@@ -35,7 +35,8 @@ $("#url__image").addEventListener("input", ()=>{
 }
 meme()
 ```
-ejemplo de una función realizada en el proyecto
+ejemplo de una función realizada en el proyecto (esta función permite que al ingresar una url se visualice la imagen en el gestor de memes)
+
  
  <br>
 
