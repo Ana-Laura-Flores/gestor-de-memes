@@ -19,7 +19,7 @@
  </section>
 
  ```     
- fragmento de código      
+ fragmento de código HTML      
 
 
  - En el desarrollo del proyecto para su funcionamiento se utiliza JavaScript para modificar dinámicamente su contenido y sus propiedades tanto del texto como de la imagen. Utilizando funciones, variables, eventos.
@@ -35,7 +35,7 @@ $("#url__image").addEventListener("input", ()=>{
 }
 meme()
 ```
-ejemplo de una función realizada en el proyecto
+ejemplo de una función realizada en el proyecto (esta función permite que al ingresar una url se visualice la imagen en el gestor de memes)
  
  <br>
 
