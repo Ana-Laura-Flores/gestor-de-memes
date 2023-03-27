@@ -251,6 +251,10 @@ button{
   background-color: var(--background-primary);
 }
 
+#name__background{
+  font-size: 10px;
+}
+
 #background__color::-webkit-color-swatch,
 #text__color::-webkit-color-swatch,
 #text__back::-webkit-color-swatch{

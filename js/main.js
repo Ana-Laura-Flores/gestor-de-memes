@@ -110,6 +110,16 @@ $("#background__color").addEventListener("input", ()=>{
     $(".meme__image").style.backgroundColor = $("#background__color").value
 })
 
+// text of image background color 
+
+const imageBackgroundColor=()=>{
+    $("#background__color").addEventListener("input",()=>{
+        const name_back = $("#background__color").value
+        $("#name__background").innerHTML = name_back
+    })
+}
+imageBackgroundColor()
+
 // select blend-mode -----------------------------------------------------------
 const blendMode =()=>{
     $("#panel__control__select").addEventListener("input", ()=>{
