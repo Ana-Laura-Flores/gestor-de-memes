@@ -1,4 +1,4 @@
-# Gestor de Memes - Proyecto JS para Carrera Desarrollo fronted ADA
+# Gestor de Memes - Proyecto JS para Carrera Desarrollo Frontend ADA
 <p> Es una aplicación realizada para el módulo II (JavaScript) de la Carrera de Desarrollo Fronted en ADA. Es parte de un proceso de aprendizaje. </p>
 
 [link del proyecto](https://ana-laura-flores.github.io/gestor-de-memes/)
@@ -6,7 +6,36 @@
 ## Un poco de la trastienda del proyecto
 
  - Se utiliza lenguaje HTML, CSS y JavaScript
+
+``` html
+ <section class="main__meme">
+    <div class="meme__text top" id="div__top">
+         <h2 id="h2__top">TEXTO SUPERIOR</h2>
+    </div>
+    <div class="meme__image" id="image__meme"></div>
+    <div class="meme__text bottom"id="div__bottom">
+        <h2 id="h2__bottom" >TEXTO INFERIOR</h2>
+    </div>
+ </section>
+
+ ```     
+ fragmento de código      
+
+
  - En el desarrollo del proyecto para su funcionamiento se utiliza JavaScript para modificar dinámicamente su contenido y sus propiedades tanto del texto como de la imagen. Utilizando funciones, variables, eventos.
+
+ ``` javascript
+ const meme =()=>{
+$("#url__image").addEventListener("input", ()=>{
+    const urlImage = $("#url__image").value
+    $(".meme__image").style.backgroundImage = `url(${urlImage})`
+    $(".meme__image").style.backgroundSize ="cover"
+    $(".meme__image").style.backgroundPosition ="center"
+    })
+}
+meme()
+```
+ejemplo de una función realizada en el proyecto
  
  <br>
 
