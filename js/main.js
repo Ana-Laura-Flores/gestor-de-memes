@@ -27,7 +27,7 @@ const btnClose =()=>{
         $("#aside").style.display = "none"
     })
         
-}
+} 
 btnClose()
 
 //MODO CLARO ---- MODO OSCURO -------------------------------------------
@@ -68,7 +68,7 @@ $("#url__image").addEventListener("input", ()=>{
     $(".meme__image").style.backgroundSize ="cover"
     $(".meme__image").style.backgroundPosition ="center"
     
-})
+    })
 }
 meme()
 
@@ -90,6 +90,7 @@ const changeMeme = ()=>{
     $(".meme__image").style.filter = `brightness(${brightness})opacity(${opacity})contrast(${contrast}%)blur(${blur}px)grayscale(${grayscale}%)sepia(${sepia}%)hue-rotate(${hue}deg)saturate(${saturate}%)invert(${invert})`
  
 }
+changeMeme()
 const filterMeme=()=>{
     $("#range__brightness").addEventListener("input",changeMeme)
     $("#range__opacity").addEventListener("input",changeMeme)
